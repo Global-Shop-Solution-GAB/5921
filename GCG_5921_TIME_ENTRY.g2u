@@ -1,0 +1,534 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.fmTimeCard..Create(BaseForm)
+Gui.fmTimeCard..Caption("Manually Add Hours to Work Order")
+Gui.fmTimeCard..Size(14235,5715)
+Gui.fmTimeCard..MinX(0)
+Gui.fmTimeCard..MinY(0)
+Gui.fmTimeCard..Position(0,0)
+Gui.fmTimeCard..AlwaysOnTop(True)
+Gui.fmTimeCard..FontName("Tahoma")
+Gui.fmTimeCard..FontSize(8.25)
+Gui.fmTimeCard..ControlBox(True)
+Gui.fmTimeCard..MaxButton(True)
+Gui.fmTimeCard..MinButton(True)
+Gui.fmTimeCard..MousePointer(0)
+Gui.fmTimeCard..Moveable(True)
+Gui.fmTimeCard..Sizeable(True)
+Gui.fmTimeCard..ShowInTaskBar(True)
+Gui.fmTimeCard..TitleBar(True)
+Gui.fmTimeCard..Event(UnLoad,fmTimeCard_UnLoad)
+Gui.fmTimeCard.GsGrid.Create(GsGridControl)
+Gui.fmTimeCard.GsGrid.Enabled(True)
+Gui.fmTimeCard.GsGrid.Visible(True)
+Gui.fmTimeCard.GsGrid.Zorder(0)
+Gui.fmTimeCard.GsGrid.Size(13980,2925)
+Gui.fmTimeCard.GsGrid.Position(135,1200)
+Gui.fmTimeCard.GsGrid.Event(RowCellClick,GsGrid_RowCellClick)
+Gui.fmTimeCard.cmdWOBrw.Create(Button)
+Gui.fmTimeCard.cmdWOBrw.Enabled(True)
+Gui.fmTimeCard.cmdWOBrw.Visible(True)
+Gui.fmTimeCard.cmdWOBrw.Zorder(0)
+Gui.fmTimeCard.cmdWOBrw.Size(645,345)
+Gui.fmTimeCard.cmdWOBrw.Position(2010,810)
+Gui.fmTimeCard.cmdWOBrw.Caption("^")
+Gui.fmTimeCard.cmdWOBrw.FontName("Tahoma")
+Gui.fmTimeCard.cmdWOBrw.FontSize(8.25)
+Gui.fmTimeCard.cmdWOBrw.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cmdWOBrw.Event(Click,cmdWOBrw_Click)
+Gui.fmTimeCard.lblWO.Create(Label,"Work Order",True,975,195,0,135,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblWO.BorderStyle(0)
+Gui.fmTimeCard.lblWO.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.txtWO.Create(TextBox,"",True,1035,300,0,135,840,True,0,"Tahoma",8.25,,1)
+Gui.fmTimeCard.txtWO.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.lblSEQ.Create(Label,"Sequence",True,825,195,0,2700,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblSEQ.BorderStyle(0)
+Gui.fmTimeCard.lblSEQ.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cboSEQ.Create(ComboBox)
+Gui.fmTimeCard.cboSEQ.Enabled(True)
+Gui.fmTimeCard.cboSEQ.Visible(True)
+Gui.fmTimeCard.cboSEQ.Zorder(0)
+Gui.fmTimeCard.cboSEQ.Size(4905,300)
+Gui.fmTimeCard.cboSEQ.Position(2700,840)
+Gui.fmTimeCard.cboSEQ.FontName("Tahoma")
+Gui.fmTimeCard.cboSEQ.FontSize(8.25)
+Gui.fmTimeCard.cboSEQ.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cboSEQ.Event(Change,cboSEQ_Change)
+Gui.fmTimeCard.lblSuff.Create(Label,"Suffix",True,480,195,0,1245,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblSuff.BorderStyle(0)
+Gui.fmTimeCard.lblSuff.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.txtSuff.Create(TextBox,"",True,720,300,0,1245,840,True,0,"Tahoma",8.25,,1)
+Gui.fmTimeCard.txtSuff.Locked(True)
+Gui.fmTimeCard.txtSuff.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.lblHrs.Create(Label,"Hours",True,495,195,0,10185,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblHrs.BorderStyle(0)
+Gui.fmTimeCard.lblHrs.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.txtHrs.Create(TextBox,"",True,1500,300,0,10185,840,True,0,"Tahoma",8.25,,1)
+Gui.fmTimeCard.txtHrs.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cmdAdd.Create(Button)
+Gui.fmTimeCard.cmdAdd.Enabled(True)
+Gui.fmTimeCard.cmdAdd.Visible(True)
+Gui.fmTimeCard.cmdAdd.Zorder(0)
+Gui.fmTimeCard.cmdAdd.Size(1125,345)
+Gui.fmTimeCard.cmdAdd.Position(11820,810)
+Gui.fmTimeCard.cmdAdd.Caption("Add/Updt")
+Gui.fmTimeCard.cmdAdd.FontName("Tahoma")
+Gui.fmTimeCard.cmdAdd.FontSize(8.25)
+Gui.fmTimeCard.cmdAdd.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.fmTimeCard.cmdDel.Create(Button)
+Gui.fmTimeCard.cmdDel.Enabled(True)
+Gui.fmTimeCard.cmdDel.Visible(True)
+Gui.fmTimeCard.cmdDel.Zorder(0)
+Gui.fmTimeCard.cmdDel.Size(1125,345)
+Gui.fmTimeCard.cmdDel.Position(13020,810)
+Gui.fmTimeCard.cmdDel.Caption("Del Entry")
+Gui.fmTimeCard.cmdDel.FontName("Tahoma")
+Gui.fmTimeCard.cmdDel.FontSize(8.25)
+Gui.fmTimeCard.cmdDel.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cmdDel.Event(Click,cmdDel_Click)
+Gui.fmTimeCard.cmdSv.Create(Button)
+Gui.fmTimeCard.cmdSv.Enabled(True)
+Gui.fmTimeCard.cmdSv.Visible(True)
+Gui.fmTimeCard.cmdSv.Zorder(0)
+Gui.fmTimeCard.cmdSv.Size(2100,345)
+Gui.fmTimeCard.cmdSv.Position(135,4245)
+Gui.fmTimeCard.cmdSv.Caption("Commit Hours")
+Gui.fmTimeCard.cmdSv.FontName("Tahoma")
+Gui.fmTimeCard.cmdSv.FontSize(10)
+Gui.fmTimeCard.cmdSv.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cmdSv.Event(Click,cmdSv_Click)
+Gui.fmTimeCard.txtWC.Create(TextBox,"",True,1125,300,0,7665,840,True,0,"Tahoma",8.25,,1)
+Gui.fmTimeCard.txtWC.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.lblWC.Create(Label,"Workcenter",True,1005,195,0,7665,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblWC.BorderStyle(0)
+Gui.fmTimeCard.lblWC.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.cboLabType.Create(ComboBox)
+Gui.fmTimeCard.cboLabType.Enabled(True)
+Gui.fmTimeCard.cboLabType.Visible(True)
+Gui.fmTimeCard.cboLabType.Zorder(0)
+Gui.fmTimeCard.cboLabType.Size(1245,300)
+Gui.fmTimeCard.cboLabType.Position(8865,840)
+Gui.fmTimeCard.cboLabType.FontName("Tahoma")
+Gui.fmTimeCard.cboLabType.FontSize(8.25)
+Gui.fmTimeCard.cboLabType.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.lblLabType.Create(Label,"Labor Type",True,945,195,0,8865,630,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblLabType.BorderStyle(0)
+Gui.fmTimeCard.lblLabType.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.dtpLDate.Create(DatePicker)
+Gui.fmTimeCard.dtpLDate.Enabled(True)
+Gui.fmTimeCard.dtpLDate.Visible(True)
+Gui.fmTimeCard.dtpLDate.Zorder(0)
+Gui.fmTimeCard.dtpLDate.Size(1500,300)
+Gui.fmTimeCard.dtpLDate.Position(135,300)
+Gui.fmTimeCard.dtpLDate.CheckBox(False)
+Gui.fmTimeCard.dtpLDate.FontName("Tahoma")
+Gui.fmTimeCard.dtpLDate.FontSize(8.25)
+Gui.fmTimeCard.dtpLDate.FontStyle(True,False,False,False,False)
+Gui.fmTimeCard.lblLDate.Create(Label,"Labor Date",True,930,195,0,135,90,True,0,"Tahoma",8.25,,0,0)
+Gui.fmTimeCard.lblLDate.BorderStyle(0)
+Gui.fmTimeCard.lblLDate.FontStyle(True,False,False,False,False)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.External.Include.Library("JB0455.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+'TJS April 2020
+'Customer: Mentis Sciences
+'BUSINESS CASE: The company needs a way to enter time at the GUI in hours, and not worry about the start top time.
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case("15710")'Gui populate hook
+		V.Passed.000021.Set("Timecard")
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.Case("15780")'Gui Script 3 button
+		F.Intrinsic.Control.If(V.Passed.000005.Trim,=,"")'Active employee name
+			F.Intrinsic.UI.Msgbox("Please select an active employee first","Error")
+			F.Intrinsic.Control.End
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(DataIn,"sEmpName",V.Passed.000005.Trim,"sEmpNo",V.Passed.009993)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.CaseElse
+		F.Intrinsic.Control.End
+	'Future use - May launch from menu item?  
+	'F.Intrinsic.Control.CallSub(DataIn)
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.DataIn.Start
+F.Intrinsic.Control.Try
+
+F.Data.Datatable.AddExpressionColumn("JB0455","V_Date","Date","Convert(SUBSTRING([Date],1,2) + '/' + SUBSTRING([Date],3,2) + '/20' + SUBSTRING([Date],5,2), System.DateTime)")
+
+Gui.fmTimeCard.GsGrid.SuspendLayout
+
+Gui.fmTimeCard.GsGrid.AddGridviewFromDatatable("gvJB0455","JB0455")
+Gui.fmTimeCard.GsGrid.MainView("gvJB0455")
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Employee","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Job","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Suffix","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Seq","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","WC","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Hours","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Indirect","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","RateType","HeaderFontBold",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","HeaderFontBold",True)
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Employee","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Job","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Suffix","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Seq","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","WC","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Hours","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Indirect","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","RateType","HeaderHAlignment","Center")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","HeaderHAlignment","Center")
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Employee","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Job","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Suffix","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Seq","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","WC","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Hours","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Indirect","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","RateType","AllowEdit",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","AllowEdit",False)
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Employee","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Job","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Suffix","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Seq","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","WC","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Hours","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Indirect","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","RateType","ReadOnly",True)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","ReadOnly",True)
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Closed","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","StartTime","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","StopTime","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","GoodPcs","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","ScrapPcs","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Reason","Visible",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","Visible",False)
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Closed","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","StartTime","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","StopTime","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","GoodPcs","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","ScrapPcs","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Reason","AllowShowHide",False)
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","Date","AllowShowHide",False)
+
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","DisplayCustomDateTime","d")
+Gui.fmTimeCard.GsGrid.SetColumnProperty("gvJB0455","V_Date","Caption","Date")
+
+Gui.fmTimeCard.GsGrid.ResumeLayout
+
+Gui.fmTimeCard.cboLabType.AddItem("D - Direct",0)
+Gui.fmTimeCard.cboLabType.AddItem("I - Indirect",1)
+
+Gui.fmTimeCard..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.DataIn.End
+
+Program.Sub.SetSeq.Start
+F.Intrinsic.Control.Try
+V.Local.sSQL.Declare
+
+Gui.fmTimeCard.cboSEQ.ClearItems
+
+F.ODBC.Connection!conts.OpenCompanyConnection
+
+F.Intrinsic.String.Build("Select RTRIM(SEQ) as SEQ,RTRIM(DESCRIPTION) as DESCRIPTION, RTRIM(PART) as WC from V_JOB_OPERATIONS where LTRIM(JOB) = '{0}' and RTRIM(SUFFIX) = '{1}' and LMO = 'L'",V.Args.WO.Trim,V.Args.Suff.Trim,V.Local.sSQL)
+
+F.Intrinsic.Control.If(V.DataTable.dtSeq.Exists)
+	F.Data.Datatable.Close("dtSeq")
+F.Intrinsic.Control.EndIf
+
+F.Data.Datatable.CreateFromSQL("dtSeq","conts",V.Local.sSQL,True)
+F.Data.Datatable.AddExpressionColumn("dtSeq","ComSeq","String","SEQ+'     '+DESCRIPTION")
+
+Gui.fmTimeCard.cboSEQ.AddItems("DataTable","dtSeq","SEQ","ComSeq")
+
+F.ODBC.Connection!conts.Close
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.SetSeq.End
+
+Program.Sub.cmdWOBrw_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sRet.Declare
+
+Gui.fmTimeCard..AlwaysOnTop(False)
+
+F.Intrinsic.UI.SetBrowserHotTypeAheadColumn(1)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(1000,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.fmTimeCard..AlwaysOnTop(True)
+
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+Gui.fmTimeCard.txtWO.Text(V.Local.sRet(0))
+Gui.fmTimeCard.txtSuff.Text(V.Local.sRet(1))
+
+F.Intrinsic.Control.CallSub(SetSeq,"WO",V.Local.sRet(0),"Suff",V.Local.sRet(1))
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdWOBrw_Click.End
+
+Program.Sub.cboSEQ_Change.Start
+F.Intrinsic.Control.Try
+V.Local.sFilter.Declare
+
+F.Intrinsic.Control.If(V.Screen.fmTimeCard!cboSEQ.Text.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("ComSeq='{0}'",V.Screen.fmTimeCard!cboSEQ.Text,V.Local.sFilter)
+
+F.Data.DataView.Create("dtSeq","dvSeq",22,V.Local.sFilter,"")
+
+Gui.fmTimeCard.txtWC.Text(V.DataView.dtSeq!dvSeq(0).WC.FieldValTrim)
+
+F.Data.DataView.Close("dtSeq","dvSeq")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cboSEQ_Change.End
+
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sHrs.Declare
+V.Local.sSeq.Declare
+V.Local.sDate.Declare
+V.Local.sWO.Declare
+V.Local.sLabType.Declare
+
+V.Local.sDate.Set(V.Screen.fmTimeCard!dtpLDate.Value)
+
+F.Intrinsic.String.Format(V.Local.sDate,"MMDDYY",V.Local.sDate)
+
+F.Intrinsic.Control.If(V.Screen.fmTimeCard!txtWO.Text.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a valid Work Order","Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.fmTimeCard!cboSEQ.Text.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a WO Sequence","Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.fmTimeCard!cboLabType.Text.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a labor type","Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.fmTimeCard!txtHrs.Text.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please input the hours to add","Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+V.Local.sHrs.Set(V.Screen.fmTimeCard!txtHrs.Text.Trim)
+V.Local.sSeq.Set(V.Screen.fmTimeCard!cboSEQ.Text.Trim)
+V.Local.sLabType.Set(V.Screen.fmTimeCard!cboLabType.Text.Trim)
+
+F.Intrinsic.String.Left(V.Local.sSeq,6,V.Local.sSeq)
+
+F.Intrinsic.String.Left(V.Local.sLabType,1,V.Local.sLabType)
+
+F.Intrinsic.String.Format(V.Local.sHrs,"##0.00",V.Local.sHrs)
+
+F.Data.Datatable.AddRow("JB0455","Date",V.Local.sDate,"Employee",V.Passed.009993.Trim,"Job",V.Screen.fmTimeCard!txtWO.Text.Trim,"Suffix",V.Screen.fmTimeCard!txtSuff.Text.Trim,"Seq",V.Local.sSeq.Trim,"WC",V.Screen.fmTimeCard!txtWC.Text.Trim,"Hours",V.Local.sHrs.Trim,"Indirect",V.Local.sLabType,"RateType","R")
+
+Gui.fmTimeCard.txtWO.Text("")
+Gui.fmTimeCard.txtSuff.Text("")
+Gui.fmTimeCard.cboSEQ.Text("")
+Gui.fmTimeCard.txtHrs.Text("")
+Gui.fmTimeCard.cboLabType.Text("")
+Gui.fmTimeCard.txtWC.Text("")
+
+'F.Intrinsic.Control.CallSub(DataIn)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.cmdDel_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sWO.Declare
+V.Local.sSuff.Declare
+V.Local.sSeq.Declare
+V.Local.sHrs.Declare
+V.Local.sSQL.Declare
+
+V.Local.sWO.Set(V.Screen.fmTimeCard!txtWO.Text.Trim)
+V.Local.sSuff.Set(V.Screen.fmTimeCard!txtSuff.Text.Trim)
+V.Local.sSeq.Set(V.Screen.fmTimeCard!cboSEQ.Text.Trim)
+V.Local.sHrs.Set(V.Screen.fmTimeCard!txtHrs.Text.Trim)
+
+F.Intrinsic.String.Left(V.Local.sSeq,6,V.Local.sSeq)
+
+F.Intrinsic.String.Build("Job = '{0}' and Suffix = '{1}' and Seq = '{2}' and Hours = '{3}'",V.Local.sWO.Trim,V.Local.sSuff.Trim,V.Local.sSeq.Trim,V.Local.sHrs.Trim,V.Local.sSQL)
+
+F.Data.DataView.Create("JB0455","dvDEL",22,V.Local.sSQL,"")
+
+F.Intrinsic.Control.If(V.DataView.JB0455!dvDEL.RowCount,=,0)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Data.DataView.DeleteRow("JB0455","dvDEL",0)
+
+F.Data.DataView.Close("JB0455","dvDEL")
+
+Gui.fmTimeCard.txtWO.Text("")
+Gui.fmTimeCard.txtSuff.Text("")
+Gui.fmTimeCard.cboSEQ.Text("")
+Gui.fmTimeCard.txtHrs.Text("")
+Gui.fmTimeCard.cboLabType.Text("")
+Gui.fmTimeCard.txtWC.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdDel_Click.End
+
+Program.Sub.cmdSv_Click.Start
+F.Intrinsic.Control.Try
+
+F.Data.Datatable.RemoveColumn("JB0455","V_Date")
+
+F.Intrinsic.Control.CallSub(JB0455Sync)
+F.Intrinsic.Control.CallSub(fmTimeCard_Unload)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSv_Click.End
+
+Program.Sub.GsGrid_RowCellClick.Start
+F.Intrinsic.Control.Try
+V.Local.sWO.Declare
+V.Local.sSuff.Declare
+V.Local.sSeq.Declare
+V.Local.sHrs.Declare
+V.Local.sIndirect.Declare
+
+Gui.fmTimeCard.GsGrid.GetCellValueByColumnName("gvJB0455","Job",V.Args.RowIndex,V.Local.sWO)
+Gui.fmTimeCard.GsGrid.GetCellValueByColumnName("gvJB0455","Suffix",V.Args.RowIndex,V.Local.sSuff)
+Gui.fmTimeCard.GsGrid.GetCellValueByColumnName("gvJB0455","Seq",V.Args.RowIndex,V.Local.sSeq)
+Gui.fmTimeCard.GsGrid.GetCellValueByColumnName("gvJB0455","Hours",V.Args.RowIndex,V.Local.sHrs)
+Gui.fmTimeCard.GsGrid.GetCellValueByColumnName("gvJB0455","Indirect",V.Args.RowIndex,V.Local.sIndirect)
+
+F.Intrinsic.Control.If(V.Local.sIndirect.Trim,=,"D")
+	F.Intrinsic.String.Build("{0} - Direct",V.Local.sIndirect,V.Local.sIndirect)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0} - Indirect",V.Local.sIndirect,V.Local.sIndirect)
+F.Intrinsic.Control.EndIf
+
+Gui.fmTimeCard.txtWO.Text(V.Local.sWO.Trim)
+Gui.fmTimeCard.txtSuff.Text(V.local.sSuff.Trim)
+Gui.fmTimeCard.txtHrs.Text(V.Local.sHrs.Trim)
+Gui.fmTimeCard.cboLabType.Text(V.Local.sIndirect)
+
+F.Intrinsic.Control.CallSub(SetSeq,"WO",V.Local.sWO,"Suff",V.Local.sSuff)
+
+Gui.fmTimeCard.cboSEQ.Text(V.Local.sSeq.Trim)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGrid_RowCellClick.End
+
+Program.Sub.fmTimeCard_UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.sRet.Declare
+
+F.Intrinsic.Control.If(V.DataTable.JB0455.RowCount,>=,1)
+	F.Intrinsic.UI.Msgbox("You have uncomitted hours.  All work will be lost.  Are you sure you wish to quit?","Warning",4,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,=,6)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.fmTimeCard_UnLoad.End
+
+Program.Sub.SetIcon.Start
+F.Intrinsic.Control.Try
+V.Local.sForm.Declare
+V.Local.bExists.Declare
+V.Local.sIcon.Declare
+V.Local.iCounter.Declare
+
+F.Intrinsic.String.Build("{0}\ART\gss2.ico",V.Caller.GlobalDir,v.Local.sIcon)
+F.Intrinsic.File.Exists(V.Local.sIcon, V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists.Not)
+    F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+    F.Intrinsic.File.Exists(V.Local.sIcon, V.Local.bExists)
+    F.Intrinsic.Control.If(V.Local.bExists.Not)
+        F.Intrinsic.Control.ExitSub
+    F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.GetFormList(V.Local.sForm)
+F.Intrinsic.String.Split(V.Local.sForm, "*!*", V.Local.sForm)
+
+F.Intrinsic.Control.For(V.Local.iCounter, 0, V.Local.sForm.UBound, 1)
+    Gui.[V.Local.sForm(V.Local.iCounter)]..Icon(V.Local.sIcon)
+F.Intrinsic.Control.Next(V.Local.iCounter)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(Error,"SubRoutine",V.Ambient.CurrentSubroutine,"eNumber",V.Ambient.ErrorNumber,"eDescription",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.SetIcon.End
+
+Program.Sub.Error.Start
+V.Local.sError.Declare
+V.Local.iRet.Declare
+V.Local.sSep.Declare
+
+F.Intrinsic.String.Build("-------------------------------------------------------------------------------------",,V.Local.sSep)
+F.Intrinsic.String.Build("({5}-{6}){0}{7}{0}Project: {4}{0}{7}{0}Sub: {1}{0}Error: {2}, {3}", V.Ambient.NewLine, V.Args.SubRoutine, V.Args.eNumber, V.Args.eDescription,V.Caller.ScriptFile,V.Ambient.Date, V.Ambient.Time,V.Local.sSep,V.Local.sError)
+F.Intrinsic.UI.Msgbox(V.Local.sError,"Error",V.Local.iRet)
+Program.Sub.Error.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$tsmith$}$20200402142451985$}$xqPbj9atw05FglvzeFsZ9cqXP+qvG6tXgkDzk35I3fPKVLiW9Bl5pwJslZoju9CyzbWKsRin+EM=
+Program.Sub.Comments.End
